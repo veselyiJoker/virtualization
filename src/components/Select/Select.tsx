@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SelectItem } from "../SelectItem/SelectItem";
 import { ISelectItem } from "../../types";
 import { fetchSelectData } from "../../api";
