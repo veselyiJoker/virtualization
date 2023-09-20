@@ -1,9 +1,12 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { ISelectItem } from "../../types";
 import {
-  StyledSelectItemValueInitials,
+  StyledSelectValueInitials,
+  
   StyledSelectedValue,
-  StyledSelectItemName,
+  StyledSelectValueName,
+  StyledSelectValueTextContainer,
+  StyledSelectValueJob,
 } from "./styles";
 
 interface SelectValueProps {
@@ -25,11 +28,15 @@ export const SelectedValue: React.FC<SelectValueProps> = ({
   const name = selectedItem
     ? selectedItem?.first_name + " " + selectedItem?.last_name
     : "Select Value";
+  const job = selectedItem?.job || " ";
 
   return (
     <StyledSelectedValue onClick={onSelectValueClickHandler}>
-      <StyledSelectItemValueInitials>{initials}</StyledSelectItemValueInitials>
-      <StyledSelectItemName>{name}</StyledSelectItemName>
+      <StyledSelectValueInitials>{initials}</StyledSelectValueInitials>
+      <StyledSelectValueTextContainer>
+        <StyledSelectValueName>{name}</StyledSelectValueName>
+        <StyledSelectValueJob>{job}</StyledSelectValueJob>
+      </StyledSelectValueTextContainer>
     </StyledSelectedValue>
   );
 };

@@ -12,8 +12,20 @@ export const StyledSelectItemInitials = styled.span`
   background: #d0d0d0;
 `;
 
-export const StyledSelectItemName = styled.span`
+export const StyledSelectItemTextContainer = styled.div`
+  overflow: hidden;
+`;
+
+export const StyledSelectItemName = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0 0 8px 0;
+`;
+
+export const StyledSelectItemJob = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
 `;

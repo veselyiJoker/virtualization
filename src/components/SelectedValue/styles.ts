@@ -13,7 +13,7 @@ export const StyledSelectedValue = styled.p`
   }
 `;
 
-export const StyledSelectItemValueInitials = styled.span`
+export const StyledSelectValueInitials = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +25,20 @@ export const StyledSelectItemValueInitials = styled.span`
   background: #d0d0d0;
 `;
 
-export const StyledSelectItemName = styled.span`
+export const StyledSelectValueTextContainer = styled.div`
+  overflow: hidden;
+`;
+
+export const StyledSelectValueName = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0 0 8px 0;
+`;
+
+export const StyledSelectValueJob = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
 `;

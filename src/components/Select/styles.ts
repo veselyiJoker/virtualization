@@ -21,7 +21,8 @@ export const StyledCollapse = styled.div<{$isOpen: boolean}>`
 // стили закинул через родителя ибо уже поздний вечер и нет времени 
 // ковыряться в стилях ибо задание не про стили
 
-export const StyledSelectList = styled.ul`
+export const StyledSelectList = styled.ul<{$totalHeight: number}>`
+  height:  ${({ $totalHeight }) => $totalHeight}px;
   padding: 0;
   margin: 0;
   overscroll-behavior: auto;

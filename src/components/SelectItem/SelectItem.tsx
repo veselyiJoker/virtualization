@@ -1,6 +1,11 @@
 import React from "react";
 import { ISelectItem } from "../../types";
-import { StyledSelectItemInitials, StyledSelectItemName } from "./styles";
+import {
+  StyledSelectItemInitials,
+  StyledSelectItemJob,
+  StyledSelectItemName,
+  StyledSelectItemTextContainer,
+} from "./styles";
 
 interface SelectItemProps {
   selectDataItem: ISelectItem;
@@ -13,7 +18,9 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 }: SelectItemProps): JSX.Element => {
   const initials = selectDataItem?.first_name[0] + selectDataItem?.last_name[0];
   const name = selectDataItem?.first_name + " " + selectDataItem?.last_name;
+  const job = selectDataItem?.job || " ";
 
+  // i dont have time to rename it
   return (
     <li
       id={selectDataItem.id.toString()}
@@ -22,7 +29,10 @@ export const SelectItem: React.FC<SelectItemProps> = ({
       }}
     >
       <StyledSelectItemInitials>{initials}</StyledSelectItemInitials>
-      <StyledSelectItemName>{name}</StyledSelectItemName>
+      <StyledSelectItemTextContainer>
+        <StyledSelectItemName>{name}</StyledSelectItemName>
+        <StyledSelectItemJob>{job}</StyledSelectItemJob>
+      </StyledSelectItemTextContainer>
     </li>
   );
 };

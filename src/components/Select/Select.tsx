@@ -49,6 +49,7 @@ export const Select: React.FC = (): JSX.Element => {
     }
   };
 
+  // there is no point in using useCallback here
   const onSelectScrollHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const scrollHeight = e.currentTarget.scrollHeight;
     const scrollTop = e.currentTarget.scrollTop;
@@ -74,19 +75,17 @@ export const Select: React.FC = (): JSX.Element => {
           setSelectData((prevState: ISelectItem[]) => {
             return [...prevState, ...data];
           });
-  
+
           if (!selectedItem) {
             setSelectedItem(data[0]);
           }
           setSelectDataPage((prevState: number) => prevState + 1);
           setSelectDataTotal(meta.total);
           setIsFetching(false);
-
-        } catch(err) {
-          // cheap but cheerful
+        } catch (err) {
+          // should be enough for a test task
           alert(err);
         }
-  
       };
 
       fetchData();
@@ -106,14 +105,14 @@ export const Select: React.FC = (): JSX.Element => {
         onClick={onSelectClickHandler}
         $isOpen={isOpen}
       >
-        <StyledSelectList style={{ height: totalHeight }}>
+        <StyledSelectList $totalHeight={totalHeight}>
           {virtualItems.map((virtualItem) => {
-            const item = selectData[virtualItem.index]!;
+            const selectDataItem = selectData[virtualItem.index]!;
 
             return (
               <SelectItem
-                key={item.id}
-                selectDataItem={item}
+                key={selectDataItem.id}
+                selectDataItem={selectDataItem}
                 offsetTop={virtualItem.offsetTop}
               />
             );
